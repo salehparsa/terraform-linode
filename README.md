@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 * You must have [Terraform](https://www.terraform.io/) installed on your computer.
-* You must have an Account in [Linode] (https://www.linode.com/)
+* You must have an Account in [Linode](https://www.linode.com/)
 
 This templated tested with Terraform `v0.11.11` and `provider.linode v1.3.0`.
 
