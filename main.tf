@@ -6,6 +6,11 @@ provider "linode" {
   token = "${var.linode_token}"
 }
 
+resource "linode_sshkey" "main_key" {
+  label   = "public-keys"
+  ssh_key = "${chomp(file("~/.ssh/id_rsa.pub"))}"
+}
+
 resource "linode_instance" "staging-env" {
   label  = "${var.linode_label}"
   region = "${var.linode_region}"
@@ -28,8 +33,9 @@ resource "linode_instance" "staging-env" {
   }
 
   disk {
-    label = "${var.disk_label}"
-    size  = "${var.disk_size}"
+    label           = "${var.disk_label}"
+    size            = "${var.disk_size}"
+    authorized_keys = ["${linode_sshkey.main_key.ssh_key}"]
   }
 
   disk {
