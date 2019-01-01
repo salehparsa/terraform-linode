@@ -16,6 +16,16 @@ resource "linode_instance" "staging-env" {
   region = "${var.linode_region}"
   type   = "${var.instance_type}"
 
+  watchdog_enabled = true
+
+  alerts {
+    cpu            = "${var.alerts_cpu}"
+    io             = "${var.alerts_io}"
+    network_in     = "${var.alerts_network_in}"
+    network_out    = "${var.alerts_network_out}"
+    transfer_quota = "${var.alerts_transfer_quota}"
+  }
+
   config {
     label       = "${var.config_label}"
     kernel      = "${var.linode_kernel}"

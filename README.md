@@ -36,4 +36,4 @@ terraform apply
 
 ## Output
 
-Output contains Information about instance status and Public IP Address
+Output contains Information about instance status and Public IP Address and Specs.

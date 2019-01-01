@@ -51,3 +51,28 @@ variable "disk_swap_size" {
   description = "Size of Swap in MB"
   default     = "256"
 }
+
+variable "alerts_cpu" {
+  description = "The percentage of CPU usage required to trigger an alert"
+  default     = "90"
+}
+
+variable "alerts_io" {
+  description = "The amount of disk IO operation per second required to trigger an alert"
+  default     = "10000"
+}
+
+variable "alerts_network_in" {
+  description = "The amount of incoming traffic, in Mbit/s, required to trigger an alert"
+  default     = "10"
+}
+
+variable "alerts_network_out" {
+  description = "The amount of outbound traffic, in Mbit/s, required to trigger an alert"
+  default     = "10"
+}
+
+variable "alerts_transfer_quota" {
+  description = "The percentage of network transfer that may be used before an alert is triggered"
+  default     = "80"
+}
