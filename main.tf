@@ -6,15 +6,24 @@ provider "linode" {
   token = "${var.linode_token}"
 }
 
+data "linode_region" "main" {
+  id = "${var.linode_region}"
+}
+
+data "linode_instance_type" "default" {
+  id = "${var.instance_type}"
+}
+
 resource "linode_sshkey" "main_key" {
   label   = "public-key"
   ssh_key = "${chomp(file("~/.ssh/id_rsa.pub"))}"
 }
 
 resource "linode_instance" "staging-env" {
-  label  = "${var.linode_label}"
-  region = "${var.linode_region}"
-  type   = "${var.instance_type}"
+  label      = "${var.linode_label}"
+  region     = "${data.linode_region.main.id}"
+  type       = "${data.linode_instance_type.default.id}"
+  private_ip = "${var.private_ip}"
 
   backups_enabled  = "${var.backups}"
   watchdog_enabled = true

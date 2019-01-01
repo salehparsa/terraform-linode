@@ -66,6 +66,11 @@ variable "disk_swap_size" {
   default     = "256"
 }
 
+variable "private_ip" {
+  description = "If true, the created Linode will have private networking enabled within the Linode's region."
+  default     = "false"
+}
+
 variable "alerts_cpu" {
   description = "The percentage of CPU usage required to trigger an alert"
   default     = "90"
