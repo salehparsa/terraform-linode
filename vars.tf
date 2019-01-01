@@ -12,6 +12,11 @@ variable "linode_region" {
   default     = "eu-central"
 }
 
+variable "linode_image" {
+  description = "The Linode image to use"
+  default     = "linode/CentOS7"
+}
+
 variable "linode_label" {
   description = "The label that you want to use in Linode"
   default     = "linode11393997"
@@ -22,9 +27,18 @@ variable "linode_kernel" {
   default     = "linode/grub2"
 }
 
+variable "backups" {
+  description = "If this field is set to true, it will incur an additional charge for backup services."
+  default     = "false"
+}
+
 variable "config_label" {
   description = "Label of the Configuration"
   default     = "CentOS 7"
+}
+
+variable "root_password" {
+  description = "Password of the Root User"
 }
 
 variable "config_root_device" {

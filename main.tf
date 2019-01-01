@@ -7,7 +7,7 @@ provider "linode" {
 }
 
 resource "linode_sshkey" "main_key" {
-  label   = "public-keys"
+  label   = "public-key"
   ssh_key = "${chomp(file("~/.ssh/id_rsa.pub"))}"
 }
 
@@ -16,6 +16,7 @@ resource "linode_instance" "staging-env" {
   region = "${var.linode_region}"
   type   = "${var.instance_type}"
 
+  backups_enabled  = "${var.backups}"
   watchdog_enabled = true
 
   alerts {
@@ -45,7 +46,9 @@ resource "linode_instance" "staging-env" {
   disk {
     label           = "${var.disk_label}"
     size            = "${var.disk_size}"
+    image           = "${var.linode_image}"
     authorized_keys = ["${linode_sshkey.main_key.ssh_key}"]
+    root_pass       = "${var.root_password}"
   }
 
   disk {
