@@ -58,7 +58,7 @@ variable "disk_size" {
 
 variable "disk_swap_label" {
   description = "Label of the Swap Image"
-  default     = "256MB Swap Image"
+  default     = "512MB Swap Image"
 }
 
 variable "disk_swap_size" {
