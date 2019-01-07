@@ -14,7 +14,7 @@ variable "linode_region" {
 
 variable "linode_image" {
   description = "The Linode image to use"
-  default     = "linode/ubuntu18.04"
+  default     = "linode/CentOS7"
 }
 
 variable "linode_label" {
@@ -34,7 +34,7 @@ variable "backups" {
 
 variable "config_label" {
   description = "Label of the Configuration"
-  default     = "Ubuntu 18"
+  default     = "CentOS 7"
 }
 
 variable "root_password" {
@@ -48,7 +48,7 @@ variable "config_root_device" {
 
 variable "disk_label" {
   description = "Label of the Disk"
-  default     = "Ubuntu 18 Disk"
+  default     = "CentOS 7 Disk"
 }
 
 variable "disk_size" {
