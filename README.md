@@ -1,11 +1,11 @@
-# Terraform to Provision Linode Environments
+# Deploy instance on Linode with Terraform
 
 ## Pre-requisites
 
 * You must have [Terraform](https://www.terraform.io/) installed on your computer.
 * You must have an Account in [Linode](https://www.linode.com/)
 
-This templated tested with Terraform `v0.11.11` and `provider.linode v1.3.0`.
+This templated tested with Terraform `v0.11.14` and `provider.linode v1.9.2`.
 
 ## Configure Linode
 
@@ -20,6 +20,8 @@ variable "linode_token" {
 }
 ```
 
+Apart from that, you can even rename `secret-example.tfvars` to `secret.tfvars` and store your API Token there.
+
 ## Terraform
 
 Validate the templates:
@@ -33,6 +35,9 @@ Deploy the code:
 ```
 terraform apply
 ```
+
+If you are using `secret.tfvars` you need to use `-var-file="secret.tfvars"` flags for your plan or apply.
+
 
 ## Output
 
