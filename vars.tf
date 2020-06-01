@@ -95,3 +95,4 @@ variable "alerts_transfer_quota" {
   description = "The percentage of network transfer that may be used before an alert is triggered"
   default     = "80"
 }
+
